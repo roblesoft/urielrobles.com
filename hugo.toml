@@ -1,0 +1,24 @@
+baseURL = "https://urielrobles.com/"
+locale = "es-MX"
+defaultContentLanguage = "es"
+title = "Uriel Robles — Fotografía comercial"
+
+# Solo generamos HTML; sin RSS, sitemap de taxonomías, etc.
+disableKinds = ["taxonomy", "term", "rss"]
+
+[params]
+  description = "Fotografía comercial de producto y comida para restaurantes y marcas. Portafolio de Uriel Robles, Monterrey, Nuevo León."
+  email = "hello@urielrobles.com"
+  instagram = "urielrobles.film"
+  whatsapp = "528117844804"
+  whatsappLabel = "81 1784 4804"
+  location = "Monterrey, Nuevo León"
+
+[imaging]
+  resampleFilter = "Lanczos"
+  # Las fotos se convierten a WebP en varios tamaños al compilar.
+  [imaging.webp]
+    quality = 82
+  [imaging.jpeg]
+    quality = 82
+

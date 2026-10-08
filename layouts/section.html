@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <section class="trabajo page-top">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Proyectos</p>
+        <h2>{{ .Title }}</h2>
+      </div>
+      {{ with .Description }}<p class="section-note">{{ . }}</p>{{ end }}
+    </div>
+
+    <div class="projects">
+      {{- range $i, $p := .Pages }}
+      {{ partial "project.html" (dict "page" $p "n" (add $i 1)) }}
+      {{- end }}
+    </div>
+  </section>
+{{ end }}

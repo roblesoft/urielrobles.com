@@ -1,0 +1,19 @@
+{{- /* Bloque de proyecto para la portada y /proyectos/. Recibe (dict "page" $p "n" $numero). */ -}}
+{{- $p := .page -}}
+{{- $wide := $p.Resources.Get $p.Params.cover -}}
+{{- $tall := $p.Resources.Get $p.Params.coverTall -}}
+{{- $count := len ($p.Resources.ByType "image") -}}
+<article class="project{{ if modBool .n 2 }} project-reverse{{ end }}">
+  <div class="project-info">
+    <div class="project-meta">
+      <span class="num">{{ printf "%02d" .n }}</span>
+      <span class="project-tag">{{ $p.Params.tag }}</span>
+    </div>
+    <h3><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+    <p>{{ $p.Params.summary }}</p>
+    <span class="project-sub">{{ $p.Date.Format "2006" }} · {{ $count }} {{ cond (eq $count 1) "fotografía" "fotografías" }}</span>
+    <a href="{{ $p.RelPermalink }}" class="text-link">Ver proyecto →</a>
+  </div>
+  {{- with $wide }}{{ partial "img.html" (dict "src" . "class" "project-img project-img-wide" "sizes" "(min-width: 900px) 50vw, 100vw") }}{{ end }}
+  {{- with $tall }}{{ partial "img.html" (dict "src" . "class" "project-img project-img-tall" "sizes" "(min-width: 900px) 25vw, 100vw") }}{{ end }}
+</article>

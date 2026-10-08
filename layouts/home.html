@@ -1,0 +1,123 @@
+{{ define "main" }}
+{{- $img := dict
+  "bloody"    (resources.Get "images/bloody-mary.jpg")
+  "tray"      (resources.Get "images/burger-tray.jpg")
+  "glasses"   (resources.Get "images/sunglasses-rock.jpg")
+  "watch"     (resources.Get "images/watch.jpg")
+  "orange"    (resources.Get "images/orange-cocktail.jpg")
+  "croissant" (resources.Get "images/croissant-sandwich.jpg")
+  "portrait"  (resources.Get "images/portrait.jpg")
+-}}
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="eyebrow">Producto · Comida</p>
+    <h1 class="hero-title">Imágenes que hacen<br>que <em>te elijan.</em></h1>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="lead">Fotografía comercial para restaurantes y marcas que necesitan verse tan bien como lo que ofrecen.</p>
+        <a href="#trabajo" class="btn btn-solid">Ver el trabajo</a>
+      </div>
+      {{ partial "img.html" (dict "src" $img.bloody "class" "hero-img hero-img-tall" "alt" "Coctel bloody mary con escarchado de chile y botana de carne seca" "sizes" "(min-width: 900px) 25vw, 100vw" "loading" "eager") }}
+      {{ partial "img.html" (dict "src" $img.tray "class" "hero-img hero-img-wide" "alt" "Hamburguesa con papas, pepinillos y salsas servida en charola" "sizes" "(min-width: 900px) 50vw, 100vw" "loading" "eager") }}
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES -->
+  <section id="categorias" class="categorias">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Especialidades</p>
+        <h2>Esto es<br>lo que hago.</h2>
+      </div>
+      <p class="section-note">Elige una especialidad para ver los proyectos completos.</p>
+    </div>
+
+    <div class="cards">
+      <a href="/proyectos/" class="card">
+        <div class="card-photos">
+          {{ partial "img.html" (dict "src" $img.glasses "alt" "Lentes de sol Gucci sobre una piedra, fondo amarillo" "sizes" "(min-width: 900px) 25vw, 50vw") }}
+          {{ partial "img.html" (dict "src" $img.watch "alt" "Reloj Omega Seamaster dorado sobre base de vidrio" "sizes" "(min-width: 900px) 25vw, 50vw") }}
+        </div>
+        <div class="card-body">
+          <div class="card-heading"><span class="num">01</span><span class="card-title">Producto</span></div>
+          <p>Empaque, textura y detalle. Fotos limpias para e-commerce y campañas.</p>
+          <span class="card-link">Ver galería →</span>
+        </div>
+      </a>
+
+      <a href="/proyectos/" class="card">
+        <div class="card-photos">
+          {{ partial "img.html" (dict "src" $img.orange "alt" "Coctel de naranja escarchado servido en vaso alto" "sizes" "(min-width: 900px) 25vw, 50vw") }}
+          {{ partial "img.html" (dict "src" $img.croissant "alt" "Sándwich de croissant con jamón y papas a la francesa" "sizes" "(min-width: 900px) 25vw, 50vw") }}
+        </div>
+        <div class="card-body">
+          <div class="card-heading"><span class="num">02</span><span class="card-title">Comida</span></div>
+          <p>Platillos que se antojan. Menús, delivery y redes para restaurantes.</p>
+          <span class="card-link">Ver galería →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- TRABAJO RECIENTE: los 2 proyectos más recientes de content/proyectos/ -->
+  <section id="trabajo" class="trabajo">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Proyectos</p>
+        <h2>Trabajo reciente</h2>
+      </div>
+      <a href="/proyectos/" class="text-link">Ver todos los proyectos →</a>
+    </div>
+
+    <div class="projects">
+      {{- range $i, $p := first 2 (where site.RegularPages "Section" "proyectos") }}
+      {{ partial "project.html" (dict "page" $p "n" (add $i 1)) }}
+      {{- end }}
+    </div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section id="sobre-mi" class="sobre-mi">
+    {{ partial "img.html" (dict "src" $img.portrait "class" "portrait" "alt" "Retrato de Uriel Robles, fotógrafo comercial" "sizes" "(min-width: 900px) 40vw, 100vw") }}
+    <div class="sobre-mi-copy">
+      <p class="eyebrow">Sobre mí</p>
+      <h2>Hola, soy <em>Uriel Robles</em>.</h2>
+      <p class="lead">Soy fotógrafo comercial y trabajo con restaurantes y marcas que necesitan imágenes para redes, menús y campañas.</p>
+      <p class="muted-copy">[Cuéntalo en 2–3 líneas: cómo empezaste, qué te distingue y cómo es trabajar contigo.]</p>
+      <a href="#contacto" class="btn btn-solid">Cotizar un proyecto</a>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  {{- with site.Params }}
+  <section id="contacto" class="contacto">
+    <div class="contacto-grid">
+      <div class="contacto-copy">
+        <p class="eyebrow">Contacto</p>
+        <h2>Hablemos de<br>tu próximo<br><em>proyecto.</em></h2>
+        <p class="lead">Cuéntame qué necesitas (producto, menú o campaña) y te respondo con una propuesta.</p>
+        <a href="mailto:{{ .email }}" class="btn btn-solid">Cotizar mi proyecto</a>
+      </div>
+      <dl class="contact-list">
+        <div class="contact-row">
+          <dt>Correo</dt>
+          <dd><a href="mailto:{{ .email }}">{{ .email }}</a></dd>
+        </div>
+        <div class="contact-row">
+          <dt>Instagram</dt>
+          <dd><a href="https://instagram.com/{{ .instagram }}" target="_blank" rel="noopener">@{{ .instagram }}</a></dd>
+        </div>
+        <div class="contact-row">
+          <dt>WhatsApp</dt>
+          <dd><a href="https://wa.me/{{ .whatsapp }}" target="_blank" rel="noopener">{{ .whatsappLabel }}</a></dd>
+        </div>
+        <div class="contact-row">
+          <dt>Ubicación</dt>
+          <dd>{{ .location }}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+  {{- end }}
+{{ end }}

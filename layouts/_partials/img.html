@@ -1,0 +1,22 @@
+{{- /*
+  Imagen responsiva: genera versiones WebP en varios anchos y un srcset.
+  Uso: {{ partial "img.html" (dict "src" $recurso "alt" "..." "class" "..." "sizes" "...") }}
+  "src" es un recurso de imagen (resources.Get o .Resources.Get).
+*/ -}}
+{{- $img := .src -}}
+{{- $srcset := slice -}}
+{{- range slice 480 800 1200 1600 -}}
+  {{- if le . $img.Width -}}
+    {{- $r := $img.Resize (printf "%dx webp" .) -}}
+    {{- $srcset = $srcset | append (printf "%s %dw" $r.RelPermalink .) -}}
+  {{- end -}}
+{{- end -}}
+{{- $fallback := $img.Resize (printf "%dx webp" (cond (ge $img.Width 1200) 1200 $img.Width)) -}}
+<img
+  {{- with .class }} class="{{ . }}"{{ end }}
+  src="{{ $fallback.RelPermalink }}"
+  {{- with $srcset }} srcset="{{ delimit . ", " }}"{{ end }}
+  sizes="{{ .sizes | default "100vw" }}"
+  width="{{ $img.Width }}" height="{{ $img.Height }}"
+  alt="{{ .alt | default $img.Title }}"
+  loading="{{ .loading | default "lazy" }}" decoding="async">

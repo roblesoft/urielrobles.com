@@ -1,0 +1,24 @@
+{{ define "main" }}
+  <section class="project-page page-top">
+    <a href="/proyectos/" class="text-link">← Todos los proyectos</a>
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">{{ .Params.tag }}</p>
+        <h2>{{ .Title }}</h2>
+      </div>
+      <div class="section-note">
+        {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+        {{ .Content }}
+      </div>
+    </div>
+
+    {{- /* Todas las imágenes de la carpeta del proyecto, por nombre de archivo. */}}
+    <div class="gallery">
+      {{- range sort (.Resources.ByType "image") "Name" }}
+      <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">
+        {{ partial "img.html" (dict "src" . "sizes" "(min-width: 900px) 50vw, 100vw") }}
+      </a>
+      {{- end }}
+    </div>
+  </section>
+{{ end }}
