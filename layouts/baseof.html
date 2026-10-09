@@ -20,5 +20,9 @@
 {{- with resources.Get "js/main.js" | minify | fingerprint }}
 <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
 {{- end }}
+{{- if hugo.IsProduction }}{{ with site.Params.cloudflareAnalyticsToken }}
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "{{ . }}"}'></script>
+{{- end }}{{ end }}
 </body>
 </html>

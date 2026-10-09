@@ -21,6 +21,8 @@ disableKinds = ["taxonomy", "term", "rss"]
   city = "Monterrey"
   region = "Nuevo León"
   country = "MX"
+  # Cloudflare Web Analytics (contador de visitas). Solo se carga en el sitio publicado.
+  cloudflareAnalyticsToken = "83d72bb09b534b2d87ce485bbe351e26"
 
 [imaging]
   resampleFilter = "Lanczos"
