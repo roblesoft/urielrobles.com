@@ -1,24 +1,36 @@
 {{ define "main" }}
-  <section class="project-page page-top">
-    <a href="/proyectos/" class="text-link">← Todos los proyectos</a>
-    <div class="section-head">
-      <div>
-        <p class="eyebrow">{{ .Params.tag }}</p>
-        <h2>{{ .Title }}</h2>
-      </div>
-      <div class="section-note">
-        {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
-        {{ .Content }}
-      </div>
-    </div>
+{{- $imgs := partial "gallery-images.html" . -}}
+  <section class="gallery-page page-top">
+    <header class="page-head">
+      <p class="eyebrow">{{ .Params.eyebrow | default .Params.tag }}</p>
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.summary }}<p class="lead">{{ . }}</p>{{ end }}
+      {{ with .Content }}<div class="lead">{{ . }}</div>{{ end }}
+      <p class="page-count">{{ len $imgs }} {{ cond (eq (len $imgs) 1) "fotografía" "fotografías" }}</p>
+    </header>
 
-    {{- /* Todas las imágenes de la carpeta del proyecto, por nombre de archivo. */}}
-    <div class="gallery">
-      {{- range sort (.Resources.ByType "image") "Name" }}
-      <a href="{{ .RelPermalink }}" target="_blank" rel="noopener">
-        {{ partial "img.html" (dict "src" . "sizes" "(min-width: 900px) 50vw, 100vw") }}
+    {{- /* Cuadrícula tipo Pinterest. Cada foto abre el visor (modal) con la versión grande. */}}
+    <div class="masonry">
+      {{- range $i, $img := $imgs }}
+      {{- $full := $img.Resize (printf "%dx webp" (cond (ge $img.Width 1600) 1600 $img.Width)) }}
+      {{- $alt := printf "%s — fotografía %d de %d" $.Title (add $i 1) (len $imgs) }}
+      <a class="pin" href="{{ $full.RelPermalink }}" data-index="{{ $i }}">
+        {{ partial "img.html" (dict "src" $img "alt" $alt "sizes" "(min-width: 1280px) 25vw, (min-width: 900px) 33vw, 50vw") }}
       </a>
       {{- end }}
     </div>
   </section>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Fotografía ampliada">
+    <figure>
+      <img id="lightboxImg" src="" alt="">
+      <figcaption>
+        <span class="lb-title">{{ .Title }}</span>
+        <span id="lightboxCount"></span>
+      </figcaption>
+    </figure>
+    <button class="lb-btn lb-close" id="lightboxClose" aria-label="Cerrar">✕</button>
+    <button class="lb-btn lb-prev" id="lightboxPrev" aria-label="Foto anterior">←</button>
+    <button class="lb-btn lb-next" id="lightboxNext" aria-label="Foto siguiente">→</button>
+  </dialog>
 {{ end }}

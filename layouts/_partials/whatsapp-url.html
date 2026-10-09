@@ -1,0 +1,2 @@
+{{- /* Enlace a WhatsApp con el mensaje de cotización ya escrito (ver params en hugo.toml). */ -}}
+{{- return printf "https://wa.me/%s?text=%s" site.Params.whatsapp (replace (urlquery site.Params.whatsappMessage) "+" "%20") -}}

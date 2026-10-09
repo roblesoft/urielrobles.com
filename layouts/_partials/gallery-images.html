@@ -1,0 +1,18 @@
+{{- /*
+  Devuelve las imágenes de las carpetas listadas en el front matter "gallery",
+  p. ej. gallery: ["audaz", "burger"] → assets/images/audaz/* y assets/images/burger/*.
+  Sin "gallery", usa las imágenes de la carpeta de la página (page bundle).
+*/ -}}
+{{- $imgs := slice -}}
+{{- with .Params.gallery -}}
+  {{- range . -}}
+    {{- range resources.Match (printf "images/%s/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG}" .) -}}
+      {{- $imgs = $imgs | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- else -}}
+  {{- range sort ($.Resources.ByType "image") "Name" -}}
+    {{- $imgs = $imgs | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $imgs -}}

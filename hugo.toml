@@ -12,6 +12,8 @@ disableKinds = ["taxonomy", "term", "rss"]
   instagram = "urielrobles.film"
   whatsapp = "528117844804"
   whatsappLabel = "81 1784 4804"
+  # Mensaje que aparece ya escrito al abrir WhatsApp desde los botones "Cotizar".
+  whatsappMessage = "Hola Uriel, me gustaría cotizar un proyecto."
   location = "Monterrey, Nuevo León"
 
 [imaging]

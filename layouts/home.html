@@ -11,15 +11,15 @@
 
   <!-- HERO -->
   <section class="hero">
-    <p class="eyebrow">Producto · Comida</p>
+    <p class="eyebrow">Producto · Comida · Lifestyle</p>
     <h1 class="hero-title">Imágenes que hacen<br>que <em>te elijan.</em></h1>
     <div class="hero-grid">
       <div class="hero-copy">
         <p class="lead">Fotografía comercial para restaurantes y marcas que necesitan verse tan bien como lo que ofrecen.</p>
         <a href="#trabajo" class="btn btn-solid">Ver el trabajo</a>
       </div>
-      {{ partial "img.html" (dict "src" $img.bloody "class" "hero-img hero-img-tall" "alt" "Coctel bloody mary con escarchado de chile y botana de carne seca" "sizes" "(min-width: 900px) 25vw, 100vw" "loading" "eager") }}
-      {{ partial "img.html" (dict "src" $img.tray "class" "hero-img hero-img-wide" "alt" "Hamburguesa con papas, pepinillos y salsas servida en charola" "sizes" "(min-width: 900px) 50vw, 100vw" "loading" "eager") }}
+      {{ partial "img.html" (dict "src" $img.bloody "class" "hero-img hero-img-tall" "focus" "50% 100%" "alt" "Coctel bloody mary con escarchado de chile y botana de carne seca" "sizes" "(min-width: 900px) 25vw, 100vw" "loading" "eager") }}
+      {{ partial "img.html" (dict "src" $img.tray "class" "hero-img hero-img-wide" "focus" "50% 50%" "alt" "Hamburguesa con papas, pepinillos y salsas servida en charola" "sizes" "(min-width: 900px) 50vw, 100vw" "loading" "eager") }}
     </div>
   </section>
 
@@ -34,7 +34,7 @@
     </div>
 
     <div class="cards">
-      <a href="/proyectos/" class="card">
+      <a href="/producto/" class="card">
         <div class="card-photos">
           {{ partial "img.html" (dict "src" $img.glasses "alt" "Lentes de sol Gucci sobre una piedra, fondo amarillo" "sizes" "(min-width: 900px) 25vw, 50vw") }}
           {{ partial "img.html" (dict "src" $img.watch "alt" "Reloj Omega Seamaster dorado sobre base de vidrio" "sizes" "(min-width: 900px) 25vw, 50vw") }}
@@ -46,7 +46,7 @@
         </div>
       </a>
 
-      <a href="/proyectos/" class="card">
+      <a href="/comida/" class="card">
         <div class="card-photos">
           {{ partial "img.html" (dict "src" $img.orange "alt" "Coctel de naranja escarchado servido en vaso alto" "sizes" "(min-width: 900px) 25vw, 50vw") }}
           {{ partial "img.html" (dict "src" $img.croissant "alt" "Sándwich de croissant con jamón y papas a la francesa" "sizes" "(min-width: 900px) 25vw, 50vw") }}
@@ -79,13 +79,14 @@
 
   <!-- SOBRE MI -->
   <section id="sobre-mi" class="sobre-mi">
-    {{ partial "img.html" (dict "src" $img.portrait "class" "portrait" "alt" "Retrato de Uriel Robles, fotógrafo comercial" "sizes" "(min-width: 900px) 40vw, 100vw") }}
+    {{ partial "img.html" (dict "src" $img.portrait "class" "portrait" "focus" "50% 50%" "alt" "Retrato de Uriel Robles, fotógrafo comercial" "sizes" "(min-width: 900px) 40vw, 100vw") }}
     <div class="sobre-mi-copy">
       <p class="eyebrow">Sobre mí</p>
       <h2>Hola, soy <em>Uriel Robles</em>.</h2>
       <p class="lead">Soy fotógrafo comercial y trabajo con restaurantes y marcas que necesitan imágenes para redes, menús y campañas.</p>
-      <p class="muted-copy">[Cuéntalo en 2–3 líneas: cómo empezaste, qué te distingue y cómo es trabajar contigo.]</p>
-      <a href="#contacto" class="btn btn-solid">Cotizar un proyecto</a>
+      <p class="muted-copy">Empecé explorando el mundo a través del lienzo y la fotografía analógica. La pintura me enseñó a componer con intención y la fotografía, a capturar el instante. Hoy fusiono ambas disciplinas para contar las historias de emprendedores, marcas y restaurantes.</p>
+      <p class="muted-copy">Cada imagen que creo es una obra pensada para hacer brillar tu negocio, atraer más clientes y envolverlos en la experiencia de tu marca.</p>
+      <a href="{{ partial "whatsapp-url.html" . }}" target="_blank" rel="noopener" class="btn btn-solid">Cotizar un proyecto</a>
     </div>
   </section>
 
@@ -97,7 +98,7 @@
         <p class="eyebrow">Contacto</p>
         <h2>Hablemos de<br>tu próximo<br><em>proyecto.</em></h2>
         <p class="lead">Cuéntame qué necesitas (producto, menú o campaña) y te respondo con una propuesta.</p>
-        <a href="mailto:{{ .email }}" class="btn btn-solid">Cotizar mi proyecto</a>
+        <a href="{{ partial "whatsapp-url.html" . }}" target="_blank" rel="noopener" class="btn btn-solid">Cotizar mi proyecto</a>
       </div>
       <dl class="contact-list">
         <div class="contact-row">

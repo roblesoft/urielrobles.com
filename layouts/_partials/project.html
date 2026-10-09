@@ -2,7 +2,7 @@
 {{- $p := .page -}}
 {{- $wide := $p.Resources.Get $p.Params.cover -}}
 {{- $tall := $p.Resources.Get $p.Params.coverTall -}}
-{{- $count := len ($p.Resources.ByType "image") -}}
+{{- $count := len (partial "gallery-images.html" $p) -}}
 <article class="project{{ if modBool .n 2 }} project-reverse{{ end }}">
   <div class="project-info">
     <div class="project-meta">

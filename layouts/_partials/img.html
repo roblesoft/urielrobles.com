@@ -2,8 +2,12 @@
   Imagen responsiva: genera versiones WebP en varios anchos y un srcset.
   Uso: {{ partial "img.html" (dict "src" $recurso "alt" "..." "class" "..." "sizes" "...") }}
   "src" es un recurso de imagen (resources.Get o .Resources.Get).
+  "focus" (opcional) es el punto que queda visible al recortar: "horizontal vertical",
+  p. ej. "50% 20%" (arriba), "30% 50%" (izquierda). En proyectos también se puede
+  poner en el front matter: resources > params > focus.
 */ -}}
 {{- $img := .src -}}
+{{- $focus := .focus | default $img.Params.focus -}}
 {{- $srcset := slice -}}
 {{- range slice 480 800 1200 1600 -}}
   {{- if le . $img.Width -}}
@@ -14,6 +18,7 @@
 {{- $fallback := $img.Resize (printf "%dx webp" (cond (ge $img.Width 1200) 1200 $img.Width)) -}}
 <img
   {{- with .class }} class="{{ . }}"{{ end }}
+  {{- with $focus }} style="{{ printf "object-position: %s" . | safeCSS }}"{{ end }}
   src="{{ $fallback.RelPermalink }}"
   {{- with $srcset }} srcset="{{ delimit . ", " }}"{{ end }}
   sizes="{{ .sizes | default "100vw" }}"
