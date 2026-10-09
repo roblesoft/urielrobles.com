@@ -341,6 +341,7 @@ img { height: auto; }
   letter-spacing: -0.015em;
 }
 .page-head .lead p + p { margin-top: 12px; }
+.page-head .lead a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
 .page-count { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 
 /* Masonry tipo Pinterest con columnas CSS */
