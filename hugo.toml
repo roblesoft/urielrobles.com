@@ -1,13 +1,14 @@
 baseURL = "https://urielrobles.com/"
 locale = "es-MX"
 defaultContentLanguage = "es"
-title = "Uriel Robles — Fotografía comercial"
+title = "Uriel Robles — Fotógrafo de producto y comida en Monterrey"
+enableRobotsTXT = true
 
 # Solo generamos HTML; sin RSS, sitemap de taxonomías, etc.
 disableKinds = ["taxonomy", "term", "rss"]
 
 [params]
-  description = "Fotografía comercial de producto y comida para restaurantes y marcas. Portafolio de Uriel Robles, Monterrey, Nuevo León."
+  description = "Fotógrafo comercial en Monterrey. Fotografía de producto, comida y lifestyle para restaurantes y marcas que necesitan verse tan bien como lo que ofrecen."
   email = "hello@urielrobles.com"
   instagram = "urielrobles.film"
   whatsapp = "528117844804"
@@ -15,6 +16,11 @@ disableKinds = ["taxonomy", "term", "rss"]
   # Mensaje que aparece ya escrito al abrir WhatsApp desde los botones "Cotizar".
   whatsappMessage = "Hola Uriel, me gustaría cotizar un proyecto."
   location = "Monterrey, Nuevo León"
+  phone = "+52 81 1784 4804"
+  # Datos para Google (schema.org): ciudad, estado y país.
+  city = "Monterrey"
+  region = "Nuevo León"
+  country = "MX"
 
 [imaging]
   resampleFilter = "Lanczos"

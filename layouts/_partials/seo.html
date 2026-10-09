@@ -1,0 +1,59 @@
+{{- /*
+  Etiquetas para buscadores y redes sociales:
+  título, descripción, favicon, Open Graph (vista previa al compartir) y datos estructurados.
+  Título por página: front matter "seoTitle" (si no, usa "title").
+*/ -}}
+{{- $title := site.Title -}}
+{{- if not .IsHome }}{{ $title = printf "%s | Uriel Robles" (.Params.seoTitle | default .Title) }}{{ end -}}
+{{- $desc := .Description | default .Params.summary | default site.Params.description | plainify | strings.TrimSpace -}}
+
+{{- /* Imagen para compartir: portada del proyecto, primera foto de la galería o la del hero. */ -}}
+{{- $share := "" -}}
+{{- with .Params.cover }}{{ $share = $.Resources.Get . }}{{ end -}}
+{{- if not $share }}{{ with partial "gallery-images.html" . }}{{ if not $.IsHome }}{{ $share = index . 0 }}{{ end }}{{ end }}{{ end -}}
+{{- if not $share }}{{ $share = resources.Get "images/burger-tray.jpg" }}{{ end -}}
+{{- $og := $share.Fill "1200x630 Center jpg q82" -}}
+
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="48x48">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+<meta name="theme-color" content="#0f0e0d">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Uriel Robles">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $og.Permalink }}">
+<meta property="og:image:width" content="{{ $og.Width }}">
+<meta property="og:image:height" content="{{ $og.Height }}">
+<meta name="twitter:card" content="summary_large_image">
+
+{{- if .IsHome }}
+{{- /* Datos estructurados: le dicen a Google quién eres, qué haces y dónde. */ -}}
+{{- $p := site.Params -}}
+{{- $portrait := (resources.Get "images/portrait.jpg").Resize "1200x jpg q82" -}}
+{{- $ld := dict
+  "@context" "https://schema.org"
+  "@type" "ProfessionalService"
+  "@id" (printf "%s#negocio" site.Home.Permalink)
+  "name" "Uriel Robles — Fotografía comercial"
+  "description" $p.description
+  "url" site.Home.Permalink
+  "image" $portrait.Permalink
+  "logo" ("icon-512.png" | absURL)
+  "telephone" $p.phone
+  "email" $p.email
+  "priceRange" "$$"
+  "address" (dict "@type" "PostalAddress" "addressLocality" $p.city "addressRegion" $p.region "addressCountry" $p.country)
+  "areaServed" (dict "@type" "City" "name" (printf "%s, %s" $p.city $p.region))
+  "knowsAbout" (slice "Fotografía de producto" "Fotografía de comida" "Fotografía lifestyle" "Fotografía para restaurantes")
+  "sameAs" (slice (printf "https://instagram.com/%s" $p.instagram))
+  "founder" (dict "@type" "Person" "name" "Uriel Robles" "jobTitle" "Fotógrafo comercial")
+-}}
+<script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+{{- end }}

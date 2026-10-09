@@ -1,5 +1,6 @@
 ---
 title: "Audaz"
+seoTitle: "Audaz, cafetería en Barrio Antiguo — Fotografía de comida"
 date: 2026-01-02
 tag: "Comida · Cafetería"
 summary: "Audaz es una cafetería emergente ubicada en el corazón del Barrio Antiguo, a unos pasos del Museo MARCO. El objetivo de la sesión fue capturar la esencia visual del espacio: desde sus bebidas y propuesta gastronómica hasta los detalles de su arquitectura."
