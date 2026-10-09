@@ -1,14 +1,14 @@
 <header class="site-header">
-  <a href="/" class="brand">
+  <a href="{{ site.Home.RelPermalink }}" class="brand">
     <span class="brand-name">Uriel Robles</span>
     <span class="brand-tag">Fotografía comercial</span>
   </a>
 
   <nav class="nav" id="nav">
-    <a href="/#categorias">Especialidades</a>
-    <a href="/proyectos/">Trabajo</a>
-    <a href="/#sobre-mi">Sobre mí</a>
-    <a href="/#contacto">Contacto</a>
+    <a href="{{ site.Home.RelPermalink }}#categorias">Especialidades</a>
+    <a href="{{ site.Home.RelPermalink }}proyectos/">Trabajo</a>
+    <a href="{{ site.Home.RelPermalink }}#sobre-mi">Sobre mí</a>
+    <a href="{{ site.Home.RelPermalink }}#contacto">Contacto</a>
     <a href="{{ partial "whatsapp-url.html" . }}" target="_blank" rel="noopener" class="btn btn-outline nav-cta">Cotizar proyecto</a>
   </nav>
 

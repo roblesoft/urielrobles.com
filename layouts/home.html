@@ -34,7 +34,7 @@
     </div>
 
     <div class="cards">
-      <a href="/producto/" class="card">
+      <a href="{{ site.Home.RelPermalink }}producto/" class="card">
         <div class="card-photos">
           {{ partial "img.html" (dict "src" $img.glasses "alt" "Lentes de sol Gucci sobre una piedra, fondo amarillo" "sizes" "(min-width: 900px) 25vw, 50vw") }}
           {{ partial "img.html" (dict "src" $img.watch "alt" "Reloj Omega Seamaster dorado sobre base de vidrio" "sizes" "(min-width: 900px) 25vw, 50vw") }}
@@ -46,7 +46,7 @@
         </div>
       </a>
 
-      <a href="/comida/" class="card">
+      <a href="{{ site.Home.RelPermalink }}comida/" class="card">
         <div class="card-photos">
           {{ partial "img.html" (dict "src" $img.orange "alt" "Coctel de naranja escarchado servido en vaso alto" "sizes" "(min-width: 900px) 25vw, 50vw") }}
           {{ partial "img.html" (dict "src" $img.croissant "alt" "Sándwich de croissant con jamón y papas a la francesa" "sizes" "(min-width: 900px) 25vw, 50vw") }}
@@ -67,7 +67,7 @@
         <p class="eyebrow">Proyectos</p>
         <h2>Trabajo reciente</h2>
       </div>
-      <a href="/proyectos/" class="text-link">Ver todos los proyectos →</a>
+      <a href="{{ site.Home.RelPermalink }}proyectos/" class="text-link">Ver todos los proyectos →</a>
     </div>
 
     <div class="projects">
