@@ -51,7 +51,7 @@
   "priceRange" "$$"
   "address" (dict "@type" "PostalAddress" "addressLocality" $p.city "addressRegion" $p.region "addressCountry" $p.country)
   "areaServed" (dict "@type" "City" "name" (printf "%s, %s" $p.city $p.region))
-  "knowsAbout" (slice "Fotografía de producto" "Fotografía de comida" "Fotografía lifestyle" "Fotografía para restaurantes")
+  "knowsAbout" (slice "Fotografía de producto" "Fotografía de comida" "Fotografía gastronómica" "Fotografía lifestyle" "Fotografía para restaurantes")
   "sameAs" (slice (printf "https://instagram.com/%s" $p.instagram))
   "founder" (dict "@type" "Person" "name" "Uriel Robles" "jobTitle" "Fotógrafo comercial")
 -}}

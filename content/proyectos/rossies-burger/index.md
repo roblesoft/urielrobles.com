@@ -2,7 +2,7 @@
 title: "Rossie's Burger"
 seoTitle: "Rossie's Burger — Fotografía de comida y hamburguesas"
 date: 2026-01-01
-tag: "Comida · Hamburguesas"
+tag: "Gastronomía · Hamburguesas"
 summary: "Un restaurante que buscaba renovar su presencia digital. Desarrollamos contenido visual enfocado en destacar la calidad de sus ingredientes, la preparación de sus hamburguesas y el lanzamiento de sus nuevos platillos."
 cover: "burger-fries.jpg"
 coverTall: "burger-closeup.jpg"
