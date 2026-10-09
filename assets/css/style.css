@@ -390,11 +390,21 @@ body:has(.lightbox[open]) { overflow: hidden; }
   width: auto;
   height: auto;
   max-width: 100%;
-  max-height: calc(100dvh - 150px);
+  max-height: calc(100dvh - 190px);
   object-fit: contain;
   border-radius: 4px;
 }
 .lightbox figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 640px;
+  text-align: center;
+}
+.lb-desc { font-size: 15px; line-height: 1.5; color: var(--text); }
+.lb-desc:empty { display: none; }
+.lb-meta {
   display: flex;
   gap: 16px;
   font-size: 12px;
@@ -427,7 +437,7 @@ body:has(.lightbox[open]) { overflow: hidden; }
   .masonry { columns: 3; column-gap: 16px; }
   .pin { margin-bottom: 16px; }
   .lightbox figure { padding: 48px 96px 32px; }
-  .lightbox img { max-height: calc(100dvh - 130px); }
+  .lightbox img { max-height: calc(100dvh - 160px); }
   .lb-close { top: 24px; right: 24px; }
   .lb-prev, .lb-next { top: 50%; bottom: auto; transform: translateY(-50%); }
   .lb-prev { left: 24px; }

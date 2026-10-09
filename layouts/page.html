@@ -13,8 +13,11 @@
     <div class="masonry">
       {{- range $i, $img := $imgs }}
       {{- $full := $img.Resize (printf "%dx webp" (cond (ge $img.Width 1600) 1600 $img.Width)) }}
-      {{- $alt := printf "%s — fotografía %d de %d" $.Title (add $i 1) (len $imgs) }}
-      <a class="pin" href="{{ $full.RelPermalink }}" data-index="{{ $i }}">
+      {{- /* Descripción desde data/fotos.yaml (carpeta → archivo); si no hay, una genérica. */}}
+      {{- $desc := "" }}
+      {{- with index hugo.Data.fotos (path.Base (path.Dir $img.Name)) }}{{ $desc = index . (path.Base $img.Name) }}{{ end }}
+      {{- $alt := $desc | default (printf "%s — fotografía %d de %d" $.Title (add $i 1) (len $imgs)) }}
+      <a class="pin" href="{{ $full.RelPermalink }}" data-index="{{ $i }}"{{ with $desc }} data-desc="{{ . }}"{{ end }}>
         {{ partial "img.html" (dict "src" $img "alt" $alt "sizes" "(min-width: 1280px) 25vw, (min-width: 900px) 33vw, 50vw") }}
       </a>
       {{- end }}
@@ -25,8 +28,11 @@
     <figure>
       <img id="lightboxImg" src="" alt="">
       <figcaption>
-        <span class="lb-title">{{ .Title }}</span>
-        <span id="lightboxCount"></span>
+        <span class="lb-desc" id="lightboxDesc"></span>
+        <span class="lb-meta">
+          <span class="lb-title">{{ .Title }}</span>
+          <span id="lightboxCount"></span>
+        </span>
       </figcaption>
     </figure>
     <button class="lb-btn lb-close" id="lightboxClose" aria-label="Cerrar">✕</button>

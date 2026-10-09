@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var pins = Array.prototype.slice.call(document.querySelectorAll('.pin'));
   var img = document.getElementById('lightboxImg');
   var count = document.getElementById('lightboxCount');
+  var desc = document.getElementById('lightboxDesc');
   var current = 0;
 
   function preload(i) {
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     img.src = pin.href;
     img.alt = pin.querySelector('img').alt;
     count.textContent = (current + 1) + ' / ' + pins.length;
+    desc.textContent = pin.dataset.desc || '';
     preload(current + 1);
     preload(current - 1);
   }

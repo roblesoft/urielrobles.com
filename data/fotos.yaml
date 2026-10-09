@@ -1,0 +1,84 @@
+# Descripción de cada foto de las galerías (texto alternativo / "alt").
+#
+# Google la usa para entender la imagen (búsqueda de Google Imágenes) y los
+# lectores de pantalla la leen en voz alta. También aparece debajo de la foto
+# en el visor.
+#
+# Estos textos son un BORRADOR escrito a partir de lo que se ve en cada foto:
+# revísalos y corrige nombres de platillos, bebidas o productos.
+#
+# Consejos:
+#   - Una frase corta (máx. ~125 caracteres) que diga qué se ve.
+#   - Menciona el nombre del cliente o lugar cuando ayude: "en la cafetería Audaz".
+#   - No empieces con "Foto de…" ni "Imagen de…".
+#   - Si dejas una descripción vacía (""), se usa "Proyecto — fotografía N de M".
+#
+# Para agregar una foto nueva: copia una línea en la carpeta correcta
+# y cambia el nombre del archivo y la descripción.
+
+product:
+  DSC01669.jpg: "Lentes de sol Gucci de carey en primer plano sobre una piedra, fondo amarillo"
+  DSC01689.jpg: "Lentes de sol Gucci negros apoyados en una piedra blanca, fondo amarillo"
+  DSC01721.jpg: "Lentes de sol Gucci de carey sobre piedra blanca con hojas de potos, fondo amarillo"
+  DSC01724.jpg: "Lentes de sol Gucci entre hojas verdes colgantes sobre fondo amarillo"
+  DSC01765.jpg: "Reloj Omega dorado con extensible de eslabones sobre fondo naranja"
+  DSC01805.jpg: "Reloj Omega dorado colgado de una copa de cristal, fondo rojo"
+  DSC01821.jpg: "Reloj Omega dorado sobre base de vidrio estriado, fondo rojo"
+  DSC01827.jpg: "Reloj Omega dorado sobre pedestal de vidrio estriado con luz cálida"
+
+audaz:
+  DSC02640.jpg: "Fachada de la cafetería Audaz en el Barrio Antiguo de Monterrey, con puerta de madera y arco de cantera"
+  DSC02649.jpg: "Interior de la cafetería Audaz con mesa de herrería, sillas rojas y ventanal con papel picado"
+  DSC02650.jpg: "Pasillo de Audaz con vitral de flores, muros de piedra y piso de talavera azul"
+  DSC02652.jpg: "Rincón de Audaz con muro de piedra, artesanías mexicanas y papel picado"
+  DSC02654.jpg: "Mesa para dos junto a un muro de piedra iluminado por el sol en la cafetería Audaz"
+  DSC02656.jpg: "Sala con sillones azules y lámparas cálidas en la cafetería Audaz"
+  DSC02666.jpg: "Bebida fría con hielo y rodaja de limón servida en vaso de vidrio, Audaz"
+  DSC02667.jpg: "Menú de bebidas y alimentos de la cafetería Audaz en un atril"
+  DSC02694.jpg: "Platillo en plato de cerámica azul con bebida de naranja escarchada en la terraza de Audaz"
+  DSC02715.jpg: "Cerveza servida sobre un vaso escarchado con chile en la cafetería Audaz"
+  DSC02730.jpg: "Bloody mary escarchado con chile y carne seca sobre mesa de herrería"
+  DSC02733.jpg: "Bebida de naranja escarchada con rodaja de naranja sobre mesa de herrería"
+  DSC02741.jpg: "Dos bebidas escarchadas sobre mesa de madera con luz de atardecer, Audaz"
+  DSC02750.jpg: "Bebida de café en capas con hielo y limón sobre mesa de madera"
+  DSC02763.jpg: "Tres bebidas de Audaz sobre mesa de madera: café en capas, bebida de naranja y bloody mary"
+  DSC02772.jpg: "Terraza de la cafetería Audaz con muros terracota, mesas de herrería y bebidas"
+  DSC02777.jpg: "Platillo y café en capas en la terraza de Audaz junto a un vitral"
+  DSC02796.jpg: "Barista sirviendo una bebida de café en copa de vidrio en Audaz"
+  DSC02821.jpg: "Espresso vertido sobre una bebida de piña con hielo"
+  DSC02833.jpg: "Bebida cremosa de piña con rodaja de piña asada sobre mesa roja"
+  DSC02846.jpg: "Croissants rellenos de jamón serrano con papas fritas, cafetería Audaz"
+  DSC02850.jpg: "Croissant de jamón con papas fritas y bebida de piña"
+  DSC02856.jpg: "Croissant relleno de jamón en primer plano con papas fritas"
+  DSC02873.jpg: "Quesadilla gratinada con pico de gallo y bebida de naranja escarchada, Audaz"
+  DSC02875.jpg: "Quesadilla con queso gratinado y pico de gallo en plato de cerámica azul"
+  DSC02931.jpg: "Mesa con bebidas junto al vitral de flores en la cafetería Audaz"
+  DSC02942.jpg: "Leche vertida sobre un café helado en copa de vidrio"
+  DSC02960.jpg: "Canela espolvoreada sobre un café con espuma"
+  DSC02981.jpg: "Café con espuma y canela en copa de vidrio sobre carpeta tejida"
+  DSC02985.jpg: "Barra de café con molino junto al vitral y plantas en Audaz"
+  DSC02998.jpg: "Café con espuma y rol de canela sobre papel a cuadros, cafetería Audaz"
+
+burger:
+  DSC01885.jpg: "Hamburguesa de Rossie's Burger con lechuga y queso sobre fondo oscuro"
+  DSC02054.jpg: "Cocinero de Rossie's Burger asando carne en la plancha entre humo"
+  DSC02159.jpg: "Primer plano de hamburguesa con carne a la parrilla, lechuga y queso derretido"
+  DSC02180.jpg: "Hamburguesa con papas, chiles, catsup y salsa de queso sobre papel a cuadros"
+  DSC02184.jpg: "Hamburguesa de Rossie's Burger con canasta de papas fritas y aderezo"
+  DSC02208.jpg: "Hamburguesa con tocino, papas fritas y salsa de queso con tocino"
+  DSC02225.jpg: "Hamburguesa con tocino, papas y salsas sobre charola"
+  DSC02241.jpg: "Primer plano de hamburguesa con tocino, carne y queso derretido"
+  DSC02242.jpg: "Hamburguesa con tocino junto a papas fritas y salsa de queso"
+  DSC02244.jpg: "Hamburguesa de Rossie's Burger con tocino y queso derretido en primer plano"
+  DSC02249.jpg: "Hamburguesa con tocino y catsup en primer plano"
+  DSC02268.jpg: "Hamburguesa con pimiento asado y queso, con papas fritas y catsup"
+  DSC02286.jpg: "Hamburguesa con pimiento rojo asado y queso derretido sobre papel a cuadros"
+  DSC02290.jpg: "Hamburguesa con pimiento asado, papas fritas y catsup"
+  DSC02371.jpg: "Hamburguesa con piña asada y queso, papas fritas y catsup"
+  DSC02402.jpg: "Tres hamburguesas de Rossie's Burger sostenidas con guantes negros"
+  DSC02431.jpg: "Hamburguesas con piña asada y pimiento junto a salsa de queso"
+  DSC02482.jpg: "Hamburguesa partida a la mitad con queso derretido y tocino"
+  DSC02509.jpg: "Hamburguesa partida con tocino y queso derretido, sostenida con guantes negros"
+  DSC02530.jpg: "Mitad de hamburguesa con tocino y queso sobre recipiente metálico"
+  DSC02570.jpg: "Hamburguesa con tocino sumergida en salsa"
+  DSC02601.jpg: "Dos hamburguesas sostenidas por el equipo de Rossie's Burger"
